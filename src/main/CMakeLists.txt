@@ -1,2 +1,12 @@
-idf_component_register(SRCS "main.c"
-                    INCLUDE_DIRS ".")
+idf_component_register(
+    SRCS
+        "main.c"
+        "motor_control.c"
+        "telemetry.c"
+        "electronic_load.c"
+        "duel_monitor.c"
+    REQUIRES
+        esp_driver_gpio
+    INCLUDE_DIRS
+        "."
+)

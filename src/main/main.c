@@ -2,14 +2,11 @@
 #include <inttypes.h>
 #include "sdkconfig.h"
 #include "esp_chip_info.h"
-#include "esp_flash.h"
+// #include "esp_flash.h"
 #include "esp_system.h"
 
-#ifndef FREERTOS_H
-#define FREERTOS_H
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
-#endif /* FREERTOS_H */
 
 #include "config.h"
 #include "telemetry.h"
