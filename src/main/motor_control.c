@@ -1,5 +1,6 @@
 #include "motor_control.h"
 
+/* Test Variables for Motor Control */
 int motor_pwm_value = 255; // Test variable to hold current PWM value for motor control
 int motor_direction = 1; // 1 for forward, -1 for reverse (for testing purposes)
 
@@ -89,7 +90,12 @@ static void motor_control_task(void *pvParameters)
 {
     while (1) {
         // Placeholder for PID control logic
-        // Run Control Loop Here
+        // General idea:
+        // - Run the control loop here at a fixed sample rate.
+        // - Read processed encoder state
+        // - Compute PID
+        // - Update PWM/direction
+        // - Publish state if needed for telemetry
 
         encoder_read();
         motor_set(motor_pwm_value, motor_direction);
@@ -124,8 +130,17 @@ void motor_set(int pwm, int dir)
  *-------------------------------------------------*/
 static void IRAM_ATTR encoder_isr_handler(void *arg)
 {
-    // Placeholder for encoder ISR logic
-    // This will be called on the rising edge of encoder A signal
+    // General idea:
+    /*
+    The handler is what will happen during the interrupt
+    e.g. - Read the state of encoder A and B pins
+         - Update a count variable based on the direction of rotation
+         - This count can then be processed in the main control loop to determine position/speed
+    Then encoder_read takes what the handler has accumulated
+    and modifies it once the task actually starts running. 
+    This way we minimize the work done in the ISR 
+    and avoid potential timing issues.
+    */
 }
 
 
@@ -137,5 +152,8 @@ static void IRAM_ATTR encoder_isr_handler(void *arg)
  *-------------------------------------------------*/
  static void encoder_read(void)
 {
-   //Placeholder for encoder reading logic
+    // General idea:
+    // - Read encoder state accumulated from ISR events
+    // - Convert counts to position / speed
+    // - Update private module state for PID calculations
 }

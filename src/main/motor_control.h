@@ -9,9 +9,11 @@
 #include "driver/ledc.h"
 #include "config.h"
 
+/* Test Variables for Motor Control */
 extern int motor_pwm_value; // Test variable to hold current PWM value for motor control
-extern int motor_direction; // 1 for forward, -1 for reverse (for testing purposes
+extern int motor_direction; // 1 for forward, -1 for reverse (for testing purposes)
 
+/* Motor Control Functions */
 void motor_control_init(void);                  // Initialize motor control pins and peripherals
 void motor_control_start(void);                 // Start the motor control task in FreeRTOS
 void motor_set(int pwm_value, int dir);         // Set motor PWM and direction
