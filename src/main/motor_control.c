@@ -1,7 +1,7 @@
 #include "motor_control.h"
 
 /* Test Variables for Motor Control */
-int motor_pwm_value = 128; // Test variable to hold current PWM value for motor control
+int motor_pwm_value = 255; // Test variable to hold current PWM value for motor control
 int motor_direction = 1; // 1 for forward, -1 for reverse (for testing purposes)
 
 /* Motor Control Task Configuration */
