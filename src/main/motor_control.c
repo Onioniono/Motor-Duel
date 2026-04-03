@@ -176,7 +176,7 @@ static void IRAM_ATTR encoder_isr_handler(void *arg)
     pos = pos_i;                     // Read current encoder count
     portEXIT_CRITICAL(&encoderMux);  // Exit critical section
 
-    long currT = micros();                                  // Get current time in microseconds
+    long currT = esp_timer_get_time();                                 // Get current time in microseconds
     float deltaT = ((float)(currT - prevT)) / 1000000.0;    // Calculate time difference in seconds
     float velocity1 = (pos - posPrev) / deltaT;             // Calculate velocity in counts per second
     posPrev = pos;                                          // Update previous position for next speed calculation
