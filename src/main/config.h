@@ -43,7 +43,7 @@
 #define ENCODER_PPR 240                 //Pulses Per Revolution for the encoder
 #define VELOCITY_RPM_CONVERSION 0.25f   // RPM (60 seconds / PPR) = 0.25 for 240 PPR encoder)
 /* Telemetry */
-#define TELEMETRY_SAMPLE_RATE_MS 100
+#define TELEMETRY_SAMPLE_RATE_MS 100     //Send telemetry data every 100ms
 #define UART UART_NUM_0  
 
 #endif /* CONFIG_H */
